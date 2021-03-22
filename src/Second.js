@@ -1,48 +1,79 @@
 import React from 'react';
 import './App.css';
 
+const lyrics = [
+  "la la la",
+  "I knew you was ----ing around Playing all innocent and ho'ing since the foundation",
+  "I get no kick from champagne Mere alcohol doesn't thrill me at all So tell me why shouldn't it be true?"
+];
 
-class Second extends React.Component {
+const songName = [
+  "la",
+  "foundation",
+  "champagne"
+];
 
-  state ={
-    lyrics: [ 
-              {id: 1, songName: "? (Questions)", songLyrics: "He cleans his metal mask with gasoline, they after him Last seen pulling chicks like a fiend pull a fast one Can't put shit past him Got niggas on his own team mad enough to blast him"},
-              {id: 2, songName: "Fancy Clown", songLyrics: "I knew you was ----ing around Playing all innocent and ho'ing since the foundation Don't make me have to pound his tin crown face in"},
-              {id: 3, songName: "One Beer", songLyrics: "I get no kick from champagne Mere alcohol doesn't thrill me at all So tell me why shouldn't it be true?"}
-            ]
-      };
 
-render() {
-  const { lyrics } = this.state; 
+function genNew(event){
+
+    var newNumber = 0;
+
+    return newNumber =  Math.floor(Math.random() * 3);
+  };  
+
+
+function Second() {
+  var number = genNew();
+  const [searchTerm] = React.useState("");
+  const [searchResults, setSearchResults] = React.useState([]);  
+  const [songTerm] = React.useState("");
+  const [songResults, setsongResults] = React.useState([]);
+  
+  React.useEffect(() => {
+    const results = lyrics.filter(lyric =>
+      lyric.toLowerCase().includes(searchTerm)
+    );
+    setSearchResults(results);
+  }, [searchTerm]);
+
+  React.useEffect(() => {
+    const results = songName.filter(song =>
+      song.toLowerCase().includes(songTerm)
+    );
+    setsongResults(results);
+  }, [songTerm]);
 
   return (
-  <div class="jumbotron">
-          <div class="container text-center">
-    <h3>{"<"}ALLCAPS{">"} WHEN YOU SPELL THE MAN NAME {"<"}/ALLCAPS{">"}</h3>
-
-    <p>The MF DOOM placeholder text generator</p>
-
-      {lyrics.map(({id, songName, songLyrics}) => (
-
- 
-
-      <form>
+  
+          <form>
+            <div className="form-group">
 
 
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1" key={id}>{songName}</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" key={id}  placeholder= {songLyrics} rows="3"></textarea>
-        </div>
-        <button type="submit" class='btn btn-info'>Copy Text </button>
-        <button type="submit" class='btn btn-danger'>Generate New </button>
-      </form>
-          ))}
-    </div>
+              <label for="exampleFormControlTextarea1">{songResults[number]}</label>
 
-    
-  </div>
+              <textarea 
+                className="form-control" 
+                id="exampleFormControlTextarea1"
+                value={searchResults[number]} 
+                rows="3">
+              </textarea>
+
+              </div>
+
+            <button 
+              type="button" 
+              className='btn btn-info' 
+              onClick={() => {navigator.clipboard.writeText(searchResults[number])}}>Copy Text
+            </button>
+
+            <button
+              type="submit" 
+              className='btn btn-danger' 
+              onClick={genNew()}>Generate New 
+            </button>
+
+          </form>
   );
 }
 
-}
 export default Second;
