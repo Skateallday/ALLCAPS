@@ -2,15 +2,15 @@ import React from 'react';
 import './App.css';
 
 const lyrics = [
-  "la la la",
+  "Which is only good for my son, When I'm in the hood, razors on tongue, Nowadays it's amazing raising young, Rule number one: Keep your fazers on stun",
   "I knew you was ----ing around Playing all innocent and ho'ing since the foundation",
   "I get no kick from champagne Mere alcohol doesn't thrill me at all So tell me why shouldn't it be true?"
 ];
 
 const songName = [
-  "la",
-  "foundation",
-  "champagne"
+  "Fazers",
+  "Fancy Clown",
+  "One Beer Left"
 ];
 
 

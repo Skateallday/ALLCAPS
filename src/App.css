@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.hoverEffect{
+  transition: all 0.5s ease-in-out;
+
+}
+.hoverEffect:hover{
+  transform: scale(1.1);
+}
+
+.noShow{
+  transition: opacity 1s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.Show{
+  opacity: 1;
+}
