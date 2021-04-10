@@ -15,6 +15,7 @@ import CzarfaceMeetsMetalFace from './CzarfaceMeetsMetalFace/tracklist.js'
 export default class Album extends React.Component {
   constructor(){
     super();
+    this.myRef = React.createRef();
     this.state = {
       Doomsday: true,
       TMTYL: true,
@@ -45,42 +46,55 @@ export default class Album extends React.Component {
   changeDoomsday(){
     this.clearAlbums()
     this.setState({Doomsday: !this.state.Doomsday})    
-  }
+    window.scrollTo(0, this.myRef.current.offsetTop )
+    }
+  
 
   changeTMTYL(){
     this.clearAlbums()
+    window.scrollTo(0, this.myRef.current.offsetTop)
     this.setState({TMTYL: !this.state.TMTYL})
+
   }
+
   changeVV(){
     this.clearAlbums()
+    window.scrollTo(0, this.myRef.current.offsetTop)
     this.setState({VV: !this.state.VV})
   }
   changeMMFood(){
     this.clearAlbums()
+    window.scrollTo(0, this.myRef.current.offsetTop);
     this.setState({MMFood: !this.state.MMFood})
   }
   changeBornLikeThis(){    
     this.clearAlbums()
+    window.scrollTo(0, this.myRef.current.offsetTop);
     this.setState({BornLikeThis: !this.state.BornLikeThis})
   }
   changeMadvillainy(){
     this.clearAlbums()
+    window.scrollTo(0, this.myRef.current.offsetTop);
     this.setState({Madvillainy: !this.state.Madvillainy})
   }
   changeTheMouseAndTheMask(){
     this.clearAlbums()
+    window.scrollTo(0, this.myRef.current.offsetTop);
     this.setState({TheMouseAndTheMask: !this.state.TheMouseAndTheMask})
   }
   changeKeyToTheKuffs(){
     this.clearAlbums()
+    window.scrollTo(0, this.myRef.current.offsetTop);
     this.setState({KeyToTheKuffs: !this.state.KeyToTheKuffs})
   }
   changeNehruvianDoom(){
     this.clearAlbums()
+    window.scrollTo(0, this.myRef.current.offsetTop);
     this.setState({NehruvianDoom: !this.state.NehruvianDoom})
   }
   changeCzarfaceMeetsMetalFace(){
     this.clearAlbums()
+    window.scrollTo(0, this.myRef.current.offsetTop);
     this.setState({CzarfaceMeetsMetalFace: !this.state.CzarfaceMeetsMetalFace})
   }
 
@@ -100,7 +114,7 @@ export default class Album extends React.Component {
 
   return (  
 <div> 
-  <div className={show_Doomsday}>
+  <div ref={this.myRef} className={show_Doomsday}>
     <div className="container-fluid bg-4  ">    
       <div className="row" >
 
@@ -122,7 +136,7 @@ export default class Album extends React.Component {
   </div>
 </div>
 
-<div className={show_TMTYL}>
+<div  ref={this.myRef} className={show_TMTYL}>
     <div className="container-fluid bg-4  ">    
       <div className="row" >
 
@@ -144,7 +158,7 @@ export default class Album extends React.Component {
   </div>
 </div>
 
-<div className={show_VV}>
+<div ref={this.myRef} className={show_VV}>
     <div className="container-fluid bg-4  ">    
       <div className="row" >
 
@@ -166,7 +180,7 @@ export default class Album extends React.Component {
   </div>
 </div>
 
-<div className={show_MMFood}>
+<div ref={this.myRef} className={show_MMFood}>
     <div className="container-fluid bg-4  ">    
       <div className="row" >
 
@@ -188,7 +202,7 @@ export default class Album extends React.Component {
   </div>
 </div>
 
-<div className={show_BornLikeThis}>
+<div ref={this.myRef} className={show_BornLikeThis}>
     <div className="container-fluid bg-4  ">    
       <div className="row" >
 
@@ -211,7 +225,7 @@ export default class Album extends React.Component {
 </div>
 
 
-<div className={show_Madvillainy}>
+<div ref={this.myRef} className={show_Madvillainy}>
     <div className="container-fluid bg-4  ">    
       <div className="row" >
 
@@ -234,7 +248,7 @@ export default class Album extends React.Component {
 </div>
 
 
-<div className={show_TheMouseAndTheMask}>
+<div ref={this.myRef} className={show_TheMouseAndTheMask}>
     <div className="container-fluid bg-4  ">    
       <div className="row" >
 
@@ -258,7 +272,7 @@ export default class Album extends React.Component {
 
 
 
-<div className={show_KeyToTheKuffs}>
+<div ref={this.myRef} className={show_KeyToTheKuffs}>
     <div className="container-fluid bg-4  ">    
       <div className="row" >
 
@@ -283,7 +297,7 @@ export default class Album extends React.Component {
 
 
 
-<div className={show_NehruvianDoom}>
+<div ref={this.myRef} className={show_NehruvianDoom}>
     <div className="container-fluid bg-4  ">    
       <div className="row" >
 
@@ -305,7 +319,7 @@ export default class Album extends React.Component {
   </div>
 </div>
 
-<div className={show_CzarfaceMeetsMetalFace}>
+<div ref={this.myRef} className={show_CzarfaceMeetsMetalFace}>
     <div className="container-fluid bg-4  ">    
       <div className="row" >
 
@@ -313,7 +327,7 @@ export default class Album extends React.Component {
 
       <div className="col-sm-2" onClick={this.changeCzarfaceMeetsMetalFace.bind(this)} >
         <h5>Czarface Meets Metal Face</h5>
-        <img src="https://upload.wikimedia.org/wikipedia/en/7/7c/NehruvianDOOM.jpg"   alt="Czarface Meets Metal Face" />
+        <img src="https://upload.wikimedia.org/wikipedia/en/5/5b/Czarface_Meets_Metal_Face.jpeg"   alt="Czarface Meets Metal Face" />
         <p><b>2018</b></p>
       </div>
 
@@ -327,7 +341,7 @@ export default class Album extends React.Component {
   </div>
 </div>
 
-<div className="container-fluid bg-4 text-center">    
+<div ref={this.myRef} className="container-fluid bg-4 text-center">    
     <h3>Albums</h3>
         <div className="row">
             <div className="col-sm-4 hoverEffect" onClick={this.changeDoomsday.bind(this)}>
