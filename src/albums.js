@@ -29,34 +29,58 @@ export default class Album extends React.Component {
     }
   }
 
-  changeDoomsday(){
-    this.setState({Doomsday: !this.state.Doomsday})
+  clearAlbums(){    
+    this.setState({Doomsday: true})
+    this.setState({TMTYL: true})
+    this.setState({VV: true})
+    this.setState({MMFood: true})
+    this.setState({BornLikeThis: true})
+    this.setState({Madvillainy: true})
+    this.setState({TheMouseAndTheMask: true})
+    this.setState({KeyToTheKuffs: true})
+    this.setState({NehruvianDoom: true})
+    this.setState({CzarfaceMeetsMetalFace: true})
   }
+
+  changeDoomsday(){
+    this.clearAlbums()
+    this.setState({Doomsday: !this.state.Doomsday})    
+  }
+
   changeTMTYL(){
+    this.clearAlbums()
     this.setState({TMTYL: !this.state.TMTYL})
   }
   changeVV(){
+    this.clearAlbums()
     this.setState({VV: !this.state.VV})
   }
   changeMMFood(){
+    this.clearAlbums()
     this.setState({MMFood: !this.state.MMFood})
   }
-  changeBornLikeThis(){
+  changeBornLikeThis(){    
+    this.clearAlbums()
     this.setState({BornLikeThis: !this.state.BornLikeThis})
   }
   changeMadvillainy(){
+    this.clearAlbums()
     this.setState({Madvillainy: !this.state.Madvillainy})
   }
   changeTheMouseAndTheMask(){
+    this.clearAlbums()
     this.setState({TheMouseAndTheMask: !this.state.TheMouseAndTheMask})
   }
   changeKeyToTheKuffs(){
+    this.clearAlbums()
     this.setState({KeyToTheKuffs: !this.state.KeyToTheKuffs})
   }
   changeNehruvianDoom(){
+    this.clearAlbums()
     this.setState({NehruvianDoom: !this.state.NehruvianDoom})
   }
   changeCzarfaceMeetsMetalFace(){
+    this.clearAlbums()
     this.setState({CzarfaceMeetsMetalFace: !this.state.CzarfaceMeetsMetalFace})
   }
 
